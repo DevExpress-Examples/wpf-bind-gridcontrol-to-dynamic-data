@@ -1,0 +1,24 @@
+﻿<dx:ThemedWindow
+    x:Class="UnboundSource.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:local="clr-namespace:UnboundSource.ViewModels"
+    Width="1000"
+    Height="800"
+    Title="MainWindow">
+    <dx:ThemedWindow.DataContext>
+        <local:MainViewModel />
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <dxg:GridControl AutoGenerateColumns="AddNew" ItemsSource="{Binding UnboundSource}" />
+        <StackPanel Grid.Row="1">
+            <Button Command="{Binding AddColumnCommand}" Content="Add a new column" />
+        </StackPanel>
+    </Grid>
+</dx:ThemedWindow>

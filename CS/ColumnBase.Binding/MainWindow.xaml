@@ -1,0 +1,21 @@
+﻿<dx:ThemedWindow
+    x:Class="ColumnBase.Binding.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:viewmodels="clr-namespace:ColumnBase.Binding.ViewModels"
+    Width="1000"
+    Height="800"
+    Title="MainWindow">
+    <dx:ThemedWindow.DataContext>
+        <viewmodels:MainViewModel />
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <dxg:GridControl ItemsSource="{Binding Items}">
+            <dxg:GridColumn Binding="{Binding Id, Mode=TwoWay}" Header="Id" />
+            <dxg:GridColumn Binding="{Binding Name, Mode=TwoWay}" Header="Name" />
+            <dxg:GridColumn Binding="{Binding CreatedAt, Mode=TwoWay}" Header="Created At" />
+        </dxg:GridControl>
+    </Grid>
+</dx:ThemedWindow>
