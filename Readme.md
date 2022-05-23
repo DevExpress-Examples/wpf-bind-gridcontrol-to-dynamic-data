@@ -1,4 +1,4 @@
-﻿## How to bind GridControl to dynamic data
+## How to Bind GridControl to Dynamic Data
 This example demonstrates how to bind GridControl to dynamic data in several different ways.
 ### What is the problem?
 GridControl is a data-aware control. It displays data from a source collection. In most cases, this data is pre-determined and can be easily obtained using property descriptors for a class that represents source records.
