@@ -12,7 +12,7 @@ The standard WPF data binding solves this problem. Provided the correct path, th
 We recommend that you use bindings for columns only when it is necessary. For example, to display unsupported data formats with custom cell templates or to make GridControl work with interface inheritance.
 
 ### The DevExpress Technique
-* First and foremost, GridControl has its own predefined way to display any data in its cells - see [Unbound Columns](https://docs.devexpress.com/WPF/6124/controls-and-libraries/data-grid/grid-view-data-layout/columns-and-card-fields/unbound-columns). Handle the special event ([CustomUnboundColumnData](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl.CustomUnboundColumnData)) to manually fetch and save edited data;
+* The GridControl has the [Unbound Columns](https://docs.devexpress.com/WPF/6124/controls-and-libraries/data-grid/grid-view-data-layout/columns-and-card-fields/unbound-columns) functionality suitable for dynamic data. Handle the ([CustomUnboundColumnData](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl.CustomUnboundColumnData)) event to manually fetch and save edited data;
 * [UnboundSource](https://docs.devexpress.com/CoreLibraries/DevExpress.Data.UnboundSource) is a separate component that works in a similar way;
 * You can also use our Virtual Data Sources for this task. See [Bind to any Data Source with Virtual Sources](https://docs.devexpress.com/WPF/10803/controls-and-libraries/data-grid/bind-to-data/bind-to-any-data-source-with-virtual-sources). Such sources support [Custom Properties](https://docs.devexpress.com/WPF/DevExpress.Xpf.Data.VirtualSourceBase.CustomProperties).
 
