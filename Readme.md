@@ -29,8 +29,8 @@ We recommend that you use bindings for columns only when it is necessary. For ex
 --|--|--|--|--|--
 DataTable|Simple|Bad|0.5x|3.8x|0.6x
 ExpandoObject|Medium|Good|0.5x|1.4x|0.5x
-ICustomTypeDescriptor|Hard|Average|2x|1.5x|0.3x
-ITypedList|Hard|Average|1.5x|1.6x|0.4x
+ICustomTypeDescriptor|Difficult|Average|2x|1.5x|0.3x
+ITypedList|Difficult|Average|1.5x|1.6x|0.4x
 Unbound Columns|Simple|Average|1.5x|1.5x|0.4x
 Unbound Source|Medium|Bad|3.6x|4x|0.4x
 Virtual Data Source***|Medium|Good|-|-|-|
