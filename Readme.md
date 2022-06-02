@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 ## How to Bind GridControl to Dynamic Data
-This example demonstrates how to bind GridControl to dynamic data in several different ways.
+This example demonstrates how to bind GridControl to dynamic data in several different ways. 
 
 ### The Task
 GridControl is a data-aware control. It displays data from a source collection. The data is usually pre-determined and can be easily obtained with property descriptors for a class that represents source records.
