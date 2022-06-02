@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32104.313
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColumnBase.Binding", "ColumnBase.Binding\ColumnBase.Binding.csproj", "{144670CB-6396-488C-A76D-2E03A3B69E78}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unbound Columns", "Unbound Columns\Unbound Columns.csproj", "{68817CDE-D46F-4FA9-8543-B1DD2820AB21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unbound_Columns", "Unbound_Columns\Unbound_Columns.csproj", "{68817CDE-D46F-4FA9-8543-B1DD2820AB21}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpandoObject", "ExpandoObject\ExpandoObject.csproj", "{1CC6598F-1884-4F13-A35D-A6A336AE3C73}"
 EndProject
