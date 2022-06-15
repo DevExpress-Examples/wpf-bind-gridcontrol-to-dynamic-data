@@ -5,28 +5,32 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using DevExpress.Mvvm;
+using DevExpress.Mvvm.Xpf;
 using DevExpress.Xpf.Data;
 
-namespace VirtualSources.InfiniteAsyncSource.ViewModels {
+namespace VirtualSources.InfiniteAsyncSource {
     public class MainViewModel : ViewModelBase {
         private readonly ObservableCollection<Item> _items = new();
-        public DevExpress.Xpf.Data.InfiniteAsyncSource Source { get => GetProperty(() => Source); set => SetProperty(() => Source, value); }
+        public PropertyDescriptorCollection CustomFields { get; }
 
         public MainViewModel() {
             _items = new ObservableCollection<Item>(Enumerable.Range(0, 10).Select(i =>
                 new Item { Id = i, Name = $"Item {i}", CreatedAt = DateTime.Now.AddDays(i) }));
 
-            Source = new DevExpress.Xpf.Data.InfiniteAsyncSource();
-            Source.CustomProperties =
-                new PropertyDescriptorCollection(TypeDescriptor.GetProperties(typeof(Item)).Cast<PropertyDescriptor>()
+            CustomFields = new PropertyDescriptorCollection(TypeDescriptor.GetProperties(typeof(Item)).Cast<PropertyDescriptor>()
                                                                .ToArray());
 
-            Source.FetchRows += (_, e) => {
-                if (_items != null)
-                    e.Result = Task.FromResult(new FetchRowsResult(_items.Cast<object>().ToArray(), false));
-            };
+            FetchRowsCommand = new DelegateCommand<FetchRowsAsyncArgs>(FetchRows);
         }
+
+        public void FetchRows(FetchRowsAsyncArgs e) {
+            if (_items != null)
+                e.Result = Task.FromResult(new FetchRowsResult(_items.Cast<object>().ToArray(), false));
+        }
+
+        public ICommand FetchRowsCommand { get; }
     }
 
     public class Item : BindableBase {

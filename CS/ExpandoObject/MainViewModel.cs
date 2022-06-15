@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-namespace ExpandoObject.ViewModels {
+namespace ExpandoObject {
     public class MainViewModel : ViewModelBase {
-        public ObservableCollection<System.Dynamic.ExpandoObject> Items { get => GetProperty(() => Items); set => SetProperty(() => Items, value); }
+        public ObservableCollection<System.Dynamic.ExpandoObject> Items { get; }
 
         public MainViewModel() {
             Items = new ObservableCollection<System.Dynamic.ExpandoObject>();

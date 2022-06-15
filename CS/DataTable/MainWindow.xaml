@@ -5,19 +5,19 @@
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-    xmlns:viewModels="clr-namespace:DataTable.ViewModels"
+    xmlns:local="clr-namespace:DataTable"
     Width="1000"
     Height="800"
     Title="MainWindow">
     <dx:ThemedWindow.DataContext>
-        <viewModels:MainViewModel />
+        <local:MainViewModel/>
     </dx:ThemedWindow.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <dxg:GridControl 
+        <dxg:GridControl
             AutoGenerateColumns="AddNew"
             ItemsSource="{Binding Items}"
             Name="Grid">

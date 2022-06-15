@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="ViewModels\MainViewModel.cs">
+    <Compile Update="MainViewModel.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

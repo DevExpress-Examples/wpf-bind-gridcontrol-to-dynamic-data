@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using ICustomTypeDescriptor.ViewModels;
 
 namespace ICustomTypeDescriptor {
     internal class CustomField {

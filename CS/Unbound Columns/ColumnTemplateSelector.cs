@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using Unbound_Columns.ViewModels;
 
 namespace Unbound_Columns {
     public class ColumnTemplateSelector : DataTemplateSelector {

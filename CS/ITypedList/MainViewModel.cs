@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -8,18 +7,18 @@ using System.Windows.Input;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.Native;
 
-namespace ICustomTypeDescriptor.ViewModels {
+namespace ITypedList {
     public class MainViewModel : ViewModelBase {
-        public ObservableCollection<Item> Items { get => GetProperty(() => Items); set => SetProperty(() => Items, value); }
+        public ItemCollection Items { get; }
 
         static MainViewModel() {
-            ItemTypeDescriptor.CustomFields.Add(new ItemPropertyDescriptor(new CustomField("Name", typeof(string))));
-            ItemTypeDescriptor.CustomFields.Add(
+            ItemCollection.CustomFields.Add(new ItemPropertyDescriptor(new CustomField("Name", typeof(string))));
+            ItemCollection.CustomFields.Add(
                 new ItemPropertyDescriptor(new CustomField("CreatedAt", typeof(DateTime))));
         }
 
         public MainViewModel() {
-            Items = new ObservableCollection<Item>(Enumerable.Range(0, 10).Select(i => new Item { Id = i }));
+            Items = new ItemCollection(Enumerable.Range(0, 10).Select(i => new Item { Id = i }));
             Items.ForEach(x => x["Name"] = $"Item {Items.IndexOf(x)}");
             Items.ForEach(x => x["CreatedAt"] = DateTime.Now.AddDays(Items.IndexOf(x)));
 
@@ -27,8 +26,8 @@ namespace ICustomTypeDescriptor.ViewModels {
         }
 
         public void AddColumn() {
-            var fieldCount = ItemTypeDescriptor.CustomFields.Count;
-            ItemTypeDescriptor.CustomFields.Add(
+            var fieldCount = ItemCollection.CustomFields.Count;
+            ItemCollection.CustomFields.Add(
                 new ItemPropertyDescriptor(new CustomField($"Value {fieldCount}", typeof(int))));
             Items.ForEach(x => x[$"Value {fieldCount}"] = Items.IndexOf(x) * fieldCount);
         }
@@ -36,7 +35,6 @@ namespace ICustomTypeDescriptor.ViewModels {
         public ICommand AddColumnCommand { get; }
     }
 
-    [TypeDescriptionProvider(typeof(ItemDescriptionProvider))]
     public class Item : BindableBase {
         private readonly Dictionary<string, object> _customFieldValues = new();
 

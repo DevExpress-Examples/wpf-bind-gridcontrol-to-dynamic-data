@@ -5,29 +5,26 @@
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxci="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-    xmlns:unboundColumns="clr-namespace:Unbound_Columns"
-    xmlns:viewModels="clr-namespace:Unbound_Columns.ViewModels"
+    xmlns:local="clr-namespace:Unbound_Columns"
     Width="1000"
     Height="800"
     Title="MainWindow">
     <dx:ThemedWindow.Resources>
-        <unboundColumns:ColumnTemplateSelector x:Key="selector">
-            <unboundColumns:ColumnTemplateSelector.UnboundColumnTemplate>
+        <local:ColumnTemplateSelector x:Key="selector">
+            <local:ColumnTemplateSelector.UnboundColumnTemplate>
                 <DataTemplate>
-                    <dxg:GridColumn
-                        FieldName="{Binding Path=(dxci:DependencyObjectExtensions.DataContext).FieldName, RelativeSource={RelativeSource Self}}"
-                        UnboundType="{Binding Path=(dxci:DependencyObjectExtensions.DataContext).UnboundType, RelativeSource={RelativeSource Self}}" />
+                    <dxg:GridColumn FieldName="{Binding Path=(dxci:DependencyObjectExtensions.DataContext).FieldName, RelativeSource={RelativeSource Self}}" UnboundType="{Binding Path=(dxci:DependencyObjectExtensions.DataContext).UnboundType, RelativeSource={RelativeSource Self}}" />
                 </DataTemplate>
-            </unboundColumns:ColumnTemplateSelector.UnboundColumnTemplate>
-            <unboundColumns:ColumnTemplateSelector.ColumnTemplate>
+            </local:ColumnTemplateSelector.UnboundColumnTemplate>
+            <local:ColumnTemplateSelector.ColumnTemplate>
                 <DataTemplate>
                     <dxg:GridColumn FieldName="{Binding Path=(dxci:DependencyObjectExtensions.DataContext).FieldName, RelativeSource={RelativeSource Self}}" />
                 </DataTemplate>
-            </unboundColumns:ColumnTemplateSelector.ColumnTemplate>
-        </unboundColumns:ColumnTemplateSelector>
+            </local:ColumnTemplateSelector.ColumnTemplate>
+        </local:ColumnTemplateSelector>
     </dx:ThemedWindow.Resources>
     <dx:ThemedWindow.DataContext>
-        <viewModels:MainViewModel />
+        <local:MainViewModel />
     </dx:ThemedWindow.DataContext>
     <Grid>
         <Grid.RowDefinitions>

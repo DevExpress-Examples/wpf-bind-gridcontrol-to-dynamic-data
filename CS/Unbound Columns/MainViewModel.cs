@@ -10,10 +10,10 @@ using DevExpress.Mvvm;
 using DevExpress.Mvvm.Native;
 using DevExpress.Mvvm.Xpf;
 
-namespace Unbound_Columns.ViewModels {
+namespace Unbound_Columns {
     public class MainViewModel : ViewModelBase {
         public ObservableCollection<Column> Columns { get => GetProperty(() => Columns); set => SetProperty(() => Columns, value); }
-        public ObservableCollection<Item> Items { get => GetProperty(() => Items); set => SetProperty(() => Items, value); }
+        public ObservableCollection<Item> Items { get; }
 
         public MainViewModel() {
             Items = new ObservableCollection<Item>(Enumerable.Range(0, 10).Select(i => new Item { Id = i }));

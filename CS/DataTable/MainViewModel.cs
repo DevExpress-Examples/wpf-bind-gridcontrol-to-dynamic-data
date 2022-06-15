@@ -3,9 +3,9 @@ using System;
 using System.Data;
 using System.Windows.Input;
 
-namespace DataTable.ViewModels {
+namespace DataTable {
     public class MainViewModel : ViewModelBase {
-        public System.Data.DataTable Items { get => GetProperty(() => Items); set => SetProperty(() => Items, value); }
+        public System.Data.DataTable Items { get; }
 
         public MainViewModel() {
             Items = new System.Data.DataTable();
