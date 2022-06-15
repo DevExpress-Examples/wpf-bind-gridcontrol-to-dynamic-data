@@ -1,15 +1,14 @@
-﻿using System;
+﻿using DevExpress.Mvvm;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using DevExpress.Mvvm.CodeGenerators;
 
 namespace ColumnBase.Binding.ViewModels {
-    [GenerateViewModel]
-    public partial class MainViewModel {
-        [GenerateProperty] private ObservableCollection<IBaseItem> _items;
+    public class MainViewModel : ViewModelBase {
+        public ObservableCollection<IBaseItem> Items { get => GetProperty(() => Items); set => SetProperty(() => Items, value); }
 
         public MainViewModel() {
-            _items = new ObservableCollection<IBaseItem>(Enumerable.Range(0, 10).Select(i =>
+            Items = new ObservableCollection<IBaseItem>(Enumerable.Range(0, 10).Select(i =>
                 new Item { Id = i, Name = $"Item {i}", CreatedAt = DateTime.Today.AddDays(i) }));
         }
     }
@@ -23,12 +22,11 @@ namespace ColumnBase.Binding.ViewModels {
         string Name { get; set; }
     }
 
-    [GenerateViewModel]
-    public partial class Item : IItem {
-        [GenerateProperty] private DateTime _createdAt;
+    public class Item : BindableBase, IItem {
+        public DateTime CreatedAt { get => GetProperty(() => CreatedAt); set => SetProperty(() => CreatedAt, value); }
 
-        [GenerateProperty] private int _id;
+        public int Id { get => GetProperty(() => Id); set => SetProperty(() => Id, value); }
 
-        [GenerateProperty] private string _name;
+        public string Name { get => GetProperty(() => Name); set => SetProperty(() => Name, value); }
     }
 }

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using DevExpress.Mvvm.CodeGenerators;
+using System.Windows.Input;
+using DevExpress.Mvvm;
 using DevExpress.Mvvm.Native;
 
 namespace ITypedList.ViewModels {
-    [GenerateViewModel]
-    public partial class MainViewModel {
-        [GenerateProperty] private ItemCollection _items;
+    public class MainViewModel : ViewModelBase {
+        public ItemCollection Items { get => GetProperty(() => Items); set => SetProperty(() => Items, value); }
 
         static MainViewModel() {
             ItemCollection.CustomFields.Add(new ItemPropertyDescriptor(new CustomField("Name", typeof(string))));
@@ -18,25 +18,27 @@ namespace ITypedList.ViewModels {
         }
 
         public MainViewModel() {
-            _items = new ItemCollection(Enumerable.Range(0, 10).Select(i => new Item { Id = i }));
-            _items.ForEach(x => x["Name"] = $"Item {_items.IndexOf(x)}");
-            _items.ForEach(x => x["CreatedAt"] = DateTime.Now.AddDays(_items.IndexOf(x)));
+            Items = new ItemCollection(Enumerable.Range(0, 10).Select(i => new Item { Id = i }));
+            Items.ForEach(x => x["Name"] = $"Item {Items.IndexOf(x)}");
+            Items.ForEach(x => x["CreatedAt"] = DateTime.Now.AddDays(Items.IndexOf(x)));
+
+            AddColumnCommand = new DelegateCommand(AddColumn);
         }
 
-        [GenerateCommand]
         public void AddColumn() {
             var fieldCount = ItemCollection.CustomFields.Count;
             ItemCollection.CustomFields.Add(
                 new ItemPropertyDescriptor(new CustomField($"Value {fieldCount}", typeof(int))));
-            _items.ForEach(x => x[$"Value {fieldCount}"] = _items.IndexOf(x) * fieldCount);
+            Items.ForEach(x => x[$"Value {fieldCount}"] = Items.IndexOf(x) * fieldCount);
         }
+
+        public ICommand AddColumnCommand { get; }
     }
 
-    [GenerateViewModel]
-    public partial class Item : INotifyPropertyChanged {
+    public class Item : BindableBase {
         private readonly Dictionary<string, object> _customFieldValues = new();
 
-        [GenerateProperty] private int _id;
+        public int Id { get => GetProperty(() => Id); set => SetProperty(() => Id, value); }
 
         public object this[string fieldName] {
             get {
@@ -46,14 +48,8 @@ namespace ITypedList.ViewModels {
 
             set {
                 _customFieldValues[fieldName] = value;
-                OnPropertyChanged(fieldName);
+                RaisePropertyChanged(fieldName);
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

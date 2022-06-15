@@ -4,17 +4,17 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using DevExpress.Data;
-using DevExpress.Mvvm.CodeGenerators;
+using DevExpress.Mvvm;
 using DevExpress.Mvvm.Native;
 
 namespace UnboundSource.ViewModels {
-    [GenerateViewModel]
-    public partial class MainViewModel {
+    public class MainViewModel : ViewModelBase {
         private readonly ObservableCollection<Item> _items;
         private readonly Random _random = new();
         private int _columnCount = 2;
-        [GenerateProperty] private DevExpress.Data.UnboundSource _unboundSource;
+        public DevExpress.Data.UnboundSource UnboundSource { get => GetProperty(() => UnboundSource); set => SetProperty(() => UnboundSource, value); }
 
         public MainViewModel() {
             _items = new ObservableCollection<Item>(Enumerable.Range(0, 10)
@@ -34,6 +34,7 @@ namespace UnboundSource.ViewModels {
                 else
                     e.Value = _items[e.RowIndex][e.PropertyName];
             };
+
             UnboundSource.ValuePushed += (_, e) => {
                 if (EqualityComparer<string>.Default.Equals(e.PropertyName, nameof(Item.Id)))
                     _items[e.RowIndex].Id = (int)e.Value;
@@ -51,9 +52,10 @@ namespace UnboundSource.ViewModels {
             UnboundSource.Properties.Add(new UnboundSourceProperty("Value 1", typeof(double)));
 
             UnboundSource.SetRowCount(_items.Count);
+
+            AddColumnCommand = new DelegateCommand(AddColumn);
         }
 
-        [GenerateCommand]
         private void AddColumn() {
             _items.ForEach(item => item[$"Value {_columnCount}"] = _random.NextDouble());
             UnboundSource?.Properties.Add(new UnboundSourceProperty($"Value {_columnCount}", typeof(double)));
@@ -61,14 +63,15 @@ namespace UnboundSource.ViewModels {
 
             _columnCount++;
         }
+
+        public ICommand AddColumnCommand { get; }
     }
 
-    [GenerateViewModel]
-    public partial class Item : INotifyPropertyChanged {
+    public class Item : BindableBase {
         private readonly Dictionary<string, object> _customFieldValues = new();
-        [GenerateProperty] private DateTime _createdAt;
-        [GenerateProperty] private int _id;
-        [GenerateProperty] private string _name;
+        public DateTime CreatedAt { get => GetProperty(() => CreatedAt); set => SetProperty(() => CreatedAt, value); }
+        public int Id { get => GetProperty(() => Id); set => SetProperty(() => Id, value); }
+        public string Name { get => GetProperty(() => Name); set => SetProperty(() => Name, value); }
 
         public object this[string fieldName] {
             get {
@@ -78,14 +81,8 @@ namespace UnboundSource.ViewModels {
 
             set {
                 _customFieldValues[fieldName] = value;
-                OnPropertyChanged(fieldName);
+                RaisePropertyChanged(fieldName);
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

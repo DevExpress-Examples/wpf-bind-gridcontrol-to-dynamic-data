@@ -1,15 +1,15 @@
-﻿using System;
+﻿using DevExpress.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using DevExpress.Mvvm.CodeGenerators;
+using System.Windows.Input;
 
 namespace ExpandoObject.ViewModels {
-    [GenerateViewModel]
-    public partial class MainViewModel {
-        [GenerateProperty] private ObservableCollection<System.Dynamic.ExpandoObject> _items;
+    public class MainViewModel : ViewModelBase {
+        public ObservableCollection<System.Dynamic.ExpandoObject> Items { get => GetProperty(() => Items); set => SetProperty(() => Items, value); }
 
         public MainViewModel() {
-            _items = new ObservableCollection<System.Dynamic.ExpandoObject>();
+            Items = new ObservableCollection<System.Dynamic.ExpandoObject>();
 
             for (var i = 0; i < 10; i++) {
                 dynamic item = new System.Dynamic.ExpandoObject();
@@ -17,16 +17,19 @@ namespace ExpandoObject.ViewModels {
                 item.Name = $"Item {i}";
                 item.CreatedAt = DateTime.Now.AddDays(i);
 
-                _items.Add(item);
+                Items.Add(item);
+            }
+
+            AddColumnCommand = new DelegateCommand(AddColumn);
+        }
+
+        public void AddColumn() {
+            foreach (var item in Items) {
+                var dict = (IDictionary<string, object>)item;
+                dict.Add($"Value {dict.Keys.Count}", Items.IndexOf(item) * dict.Keys.Count);
             }
         }
 
-        [GenerateCommand]
-        public void AddColumn() {
-            foreach (var item in _items) {
-                var dict = (IDictionary<string, object>)item;
-                dict.Add($"Value {dict.Keys.Count}", _items.IndexOf(item) * dict.Keys.Count);
-            }
-        }
+        public ICommand AddColumnCommand { get; }
     }
 }

@@ -1,28 +1,31 @@
-﻿using System;
+﻿using DevExpress.Mvvm;
+using System;
 using System.Data;
-using DevExpress.Mvvm.CodeGenerators;
+using System.Windows.Input;
 
 namespace DataTable.ViewModels {
-    [GenerateViewModel]
-    public partial class MainViewModel {
-        [GenerateProperty] private System.Data.DataTable _items;
+    public class MainViewModel : ViewModelBase {
+        public System.Data.DataTable Items { get => GetProperty(() => Items); set => SetProperty(() => Items, value); }
 
         public MainViewModel() {
-            _items = new System.Data.DataTable();
+            Items = new System.Data.DataTable();
 
-            _items.Columns.Add(new DataColumn("Id", typeof(int)));
-            _items.Columns.Add(new DataColumn("Name", typeof(string)));
-            _items.Columns.Add(new DataColumn("CreatedAt", typeof(DateTime)));
-            _items.Columns.Add(new DataColumn("Value", typeof(int), "Id * 10"));
+            Items.Columns.Add(new DataColumn("Id", typeof(int)));
+            Items.Columns.Add(new DataColumn("Name", typeof(string)));
+            Items.Columns.Add(new DataColumn("CreatedAt", typeof(DateTime)));
+            Items.Columns.Add(new DataColumn("Value", typeof(int), "Id * 10"));
 
             for (var i = 0; i < 10; i++)
-                _items.Rows.Add(i, $"Item {i}", DateTime.Today.AddDays(i));
+                Items.Rows.Add(i, $"Item {i}", DateTime.Today.AddDays(i));
+
+            AddColumnCommand = new DelegateCommand(AddColumn);
         }
 
-        [GenerateCommand]
         public void AddColumn() {
-            _items.Columns.Add(new DataColumn($"Value {_items.Columns.Count}", typeof(int),
-                $"Id * {_items.Columns.Count * 10}"));
+            Items.Columns.Add(new DataColumn($"Value {Items.Columns.Count}", typeof(int),
+                $"Id * {Items.Columns.Count * 10}"));
         }
+
+        public ICommand AddColumnCommand { get; }
     }
 }

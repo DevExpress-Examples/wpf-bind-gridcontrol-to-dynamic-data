@@ -1,0 +1,46 @@
+﻿<dx:ThemedWindow
+    x:Class="Unbound_Columns.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxci="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:unboundColumns="clr-namespace:Unbound_Columns"
+    xmlns:viewModels="clr-namespace:Unbound_Columns.ViewModels"
+    Width="1000"
+    Height="800"
+    Title="MainWindow">
+    <dx:ThemedWindow.Resources>
+        <unboundColumns:ColumnTemplateSelector x:Key="selector">
+            <unboundColumns:ColumnTemplateSelector.UnboundColumnTemplate>
+                <DataTemplate>
+                    <dxg:GridColumn
+                        FieldName="{Binding Path=(dxci:DependencyObjectExtensions.DataContext).FieldName, RelativeSource={RelativeSource Self}}"
+                        UnboundType="{Binding Path=(dxci:DependencyObjectExtensions.DataContext).UnboundType, RelativeSource={RelativeSource Self}}" />
+                </DataTemplate>
+            </unboundColumns:ColumnTemplateSelector.UnboundColumnTemplate>
+            <unboundColumns:ColumnTemplateSelector.ColumnTemplate>
+                <DataTemplate>
+                    <dxg:GridColumn FieldName="{Binding Path=(dxci:DependencyObjectExtensions.DataContext).FieldName, RelativeSource={RelativeSource Self}}" />
+                </DataTemplate>
+            </unboundColumns:ColumnTemplateSelector.ColumnTemplate>
+        </unboundColumns:ColumnTemplateSelector>
+    </dx:ThemedWindow.Resources>
+    <dx:ThemedWindow.DataContext>
+        <viewModels:MainViewModel />
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <dxg:GridControl
+            ColumnGeneratorTemplateSelector="{StaticResource selector}"
+            ColumnsSource="{Binding Columns}"
+            CustomUnboundColumnDataCommand="{Binding OnCustomUnboundColumnDataCommand}"
+            ItemsSource="{Binding Items}" />
+        <StackPanel Grid.Row="1">
+            <Button Command="{Binding AddColumnCommand}" Content="Add a new column" />
+        </StackPanel>
+    </Grid>
+</dx:ThemedWindow>

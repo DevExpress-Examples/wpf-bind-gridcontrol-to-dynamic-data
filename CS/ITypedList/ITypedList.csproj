@@ -7,9 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.Mvvm.CodeGenerators" Version="21.2.1.1" />
-    <PackageReference Include="DevExpress.Wpf" Version="21.2.5" />
-    <PackageReference Include="DevExpress.Wpf.Themes.All" Version="21.2.5" />
+    <PackageReference Include="DevExpress.Wpf" Version="21.2.7" />
+    <PackageReference Include="DevExpress.Wpf.Themes.All" Version="21.2.7" />
   </ItemGroup>
 
 </Project>
