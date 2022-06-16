@@ -30,15 +30,15 @@ We recommend that you use bindings for columns only when it is necessary. For ex
 
 ### Stats
 
-||Complexity\*|Overall Performance (1M rows)\*\*|Sorting|Filtering (even records)|Scrolling|
-|--|--|--|--|--|--|
-|DataTable|Simple|Reduced|0.5x|3.8x|0.6x|
-|ExpandoObject|Average|Good|0.5x|1.4x|0.5x|
-|ICustomTypeDescriptor|Difficult|Average|2x|1.5x|0.3x|
-|ITypedList|Difficult|Average|1.5x|1.6x|0.4x|
-|Unbound Columns|Simple|Average|1.5x|1.5x|0.4x|
-|Unbound Source|Average|Reduced|3.6x|4x|0.4x|
-|Virtual Data Source\*\*\*|Average|Good|-|-|-|
+|  | Complexity\* | Overall Performance (1M rows)\*\* | Sorting | Filtering (even records) | Scrolling |
+| --- | --- | --- | --- | --- | --- |
+| DataTable | Simple | Reduced | 0.5x | 3.8x | 0.6x |
+| ExpandoObject | Average | Good | 0.5x | 1.4x | 0.5x |
+| ICustomTypeDescriptor | Difficult | Average | 2x | 1.5x | 0.3x |
+| ITypedList | Difficult | Average | 1.5x | 1.6x | 0.4x |
+| Unbound Columns | Simple | Average | 1.5x | 1.5x | 0.4x |
+| Unbound Source | Average | Reduced | 3.6x | 4x | 0.4x |
+| Virtual Data Source\*\*\* | Average | Good | - | - | - |
 
 \* The complexity is mostly measured by our subjective opinion and the aggregate necessity to create custom classes, implement interfaces, or handle events.
 
