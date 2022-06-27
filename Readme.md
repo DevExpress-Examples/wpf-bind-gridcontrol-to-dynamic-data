@@ -37,12 +37,12 @@ We recommend that you use bindings for columns only when it is necessary. For ex
 
 ||Complexity\*|Overall Performance (1M rows)\*\*|Sorting|Filtering (even records)|Scrolling|
 |--|--|--|--|--|--|
-|[Unbound Columns](https://github.com/DevExpress-Examples/wpf-bind-gridcontrol-to-dynamic-data/tree/dev/CS/Unbound%20Columns)|Simple|Average|1.5x|1.5x|0.4x|
-|[Virtual Data Source](https://github.com/DevExpress-Examples/wpf-bind-gridcontrol-to-dynamic-data/tree/dev/CS/VirtualSources.InfiniteAsyncSource)\*\*\*|Average|Good|-|-|-|
-|[ExpandoObject](https://github.com/DevExpress-Examples/wpf-bind-gridcontrol-to-dynamic-data/tree/dev/CS/ExpandoObject)|Average|Good|0.5x|1.4x|0.5x|
-|[ICustomTypeDescriptor](https://github.com/DevExpress-Examples/wpf-bind-gridcontrol-to-dynamic-data/tree/dev/CS/ICustomTypeDescriptor)|Difficult|Average|2x|1.5x|0.3x|
-|[ITypedList](https://github.com/DevExpress-Examples/wpf-bind-gridcontrol-to-dynamic-data/tree/dev/CS/ITypedList)|Difficult|Average|1.5x|1.6x|0.4x|
-|[DataTable](https://github.com/DevExpress-Examples/wpf-bind-gridcontrol-to-dynamic-data/tree/dev/CS/DataTable)|Simple|Reduced|0.5x|3.8x|0.6x|
+|[Unbound Columns](/CS/Unbound%20Columns)|Simple|Average|1.5x|1.5x|0.4x|
+|[Virtual Data Source](/CS/VirtualSources.InfiniteAsyncSource)\*\*\*|Average|Good|-|-|-|
+|[ExpandoObject](/CS/ExpandoObject)|Average|Good|0.5x|1.4x|0.5x|
+|[ICustomTypeDescriptor](/CS/ICustomTypeDescriptor)|Difficult|Average|2x|1.5x|0.3x|
+|[ITypedList](/CS/ITypedList)|Difficult|Average|1.5x|1.6x|0.4x|
+|[DataTable](/CS/DataTable)|Simple|Reduced|0.5x|3.8x|0.6x|
 
 \* The complexity is mostly measured by our subjective opinion and the aggregate necessity to create custom classes, implement interfaces, or handle events.
 
