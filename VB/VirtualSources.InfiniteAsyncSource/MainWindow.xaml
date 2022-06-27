@@ -1,0 +1,21 @@
+﻿<dx:ThemedWindow
+    x:Class="VirtualSources.InfiniteAsyncSource.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:local="clr-namespace:VirtualSources.InfiniteAsyncSource"
+    Width="1000"
+    Height="800"
+    Title="MainWindow">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+
+    <dxg:GridControl AutoGenerateColumns="AddNew">
+        <dxg:GridControl.ItemsSource>
+            <dx:InfiniteAsyncSource CustomProperties="{Binding CustomFields}" FetchRowsCommand="{Binding FetchRowsCommand}" />
+        </dxg:GridControl.ItemsSource>
+    </dxg:GridControl>
+
+</dx:ThemedWindow>
