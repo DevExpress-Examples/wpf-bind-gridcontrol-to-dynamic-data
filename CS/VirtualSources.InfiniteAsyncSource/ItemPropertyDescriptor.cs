@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using VirtualSources.InfiniteAsyncSource.ViewModels;
 
 namespace VirtualSources.InfiniteAsyncSource {
     internal class CustomField {

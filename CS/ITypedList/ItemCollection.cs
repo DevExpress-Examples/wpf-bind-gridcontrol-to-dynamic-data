@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using ITypedList.ViewModels;
 
 namespace ITypedList {
     internal class CustomField {
@@ -18,7 +17,7 @@ namespace ITypedList {
     }
 
     public class ItemCollection : ObservableCollection<Item>, System.ComponentModel.ITypedList {
-        public static List<PropertyDescriptor> CustomFields = new();
+        public static List<PropertyDescriptor> CustomFields = new List<PropertyDescriptor>();
 
         public ItemCollection(IEnumerable<Item> collection) : base(collection) { }
 

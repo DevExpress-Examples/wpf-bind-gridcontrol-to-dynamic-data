@@ -1,28 +1,28 @@
-<dx:ThemedWindow
+﻿<dx:ThemedWindow
     x:Class="DataTable.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-    xmlns:viewModels="clr-namespace:DataTable.ViewModels"
+    xmlns:local="clr-namespace:DataTable"
     Width="1000"
     Height="800"
     Title="MainWindow">
     <dx:ThemedWindow.DataContext>
-        <viewModels:MainViewModel />
+        <local:MainViewModel />
     </dx:ThemedWindow.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <dxg:GridControl 
+        <dxg:GridControl
             AutoGenerateColumns="AddNew"
             ItemsSource="{Binding Items}"
             Name="Grid">
             <dxg:GridControl.View>
-                <dxg:TableView Name="view"/>
+                <dxg:TableView Name="view" />
             </dxg:GridControl.View>
         </dxg:GridControl>
         <StackPanel Grid.Row="1">
