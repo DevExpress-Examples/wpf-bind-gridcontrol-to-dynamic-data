@@ -43,7 +43,6 @@ We recommend that you use bindings for columns only when it is necessary. For ex
 |[ITypedList](https://github.com/DevExpress-Examples/wpf-bind-gridcontrol-to-dynamic-data/tree/dev/CS/ITypedList)|Difficult|Average|1.5x|1.6x|0.4x|
 |[DataTable](https://github.com/DevExpress-Examples/wpf-bind-gridcontrol-to-dynamic-data/tree/dev/CS/DataTable)|Simple|Reduced|0.5x|3.8x|0.6x|
 
-
 \* The complexity is mostly measured by our subjective opinion and the aggregate necessity to create custom classes, implement interfaces, or handle events.
 
 \*\* The exact time frames may differ depending on the machine specs or overall project implementation. This table shows relative values measured in multiple attempts on the same machine.
