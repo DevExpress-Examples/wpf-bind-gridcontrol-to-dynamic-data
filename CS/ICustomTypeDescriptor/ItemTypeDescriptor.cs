@@ -28,7 +28,7 @@ namespace ICustomTypeDescriptor {
     }
 
     internal class ItemTypeDescriptor : CustomTypeDescriptor {
-        public static List<PropertyDescriptor> CustomFields = new();
+        public static List<PropertyDescriptor> CustomFields = new List<PropertyDescriptor>();
 
         public ItemTypeDescriptor(System.ComponentModel.ICustomTypeDescriptor parent)
             : base(parent) { }

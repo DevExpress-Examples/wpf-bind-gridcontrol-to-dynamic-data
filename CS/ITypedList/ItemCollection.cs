@@ -17,7 +17,7 @@ namespace ITypedList {
     }
 
     public class ItemCollection : ObservableCollection<Item>, System.ComponentModel.ITypedList {
-        public static List<PropertyDescriptor> CustomFields = new();
+        public static List<PropertyDescriptor> CustomFields = new List<PropertyDescriptor>();
 
         public ItemCollection(IEnumerable<Item> collection) : base(collection) { }
 

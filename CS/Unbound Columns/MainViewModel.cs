@@ -23,9 +23,9 @@ namespace Unbound_Columns {
             });
 
             Columns = new ObservableCollection<Column> {
-                new() { FieldName = "Id" },
-                new() { FieldName = "Name", UnboundType = UnboundColumnType.String },
-                new() { FieldName = "CreatedAt", UnboundType = UnboundColumnType.DateTime }
+                new Column() { FieldName = "Id" },
+                new Column() { FieldName = "Name", UnboundType = UnboundColumnType.String },
+                new Column() { FieldName = "CreatedAt", UnboundType = UnboundColumnType.DateTime }
             };
 
             OnCustomUnboundColumnDataCommand = new DelegateCommand<UnboundColumnRowArgs>(OnCustomUnboundColumnData);
@@ -47,7 +47,7 @@ namespace Unbound_Columns {
     }
 
     public class Item : BindableBase {
-        private readonly Dictionary<string, object> _customFieldValues = new();
+        private readonly Dictionary<string, object> _customFieldValues = new Dictionary<string, object>();
         public int Id { get => GetProperty(() => Id); set => SetProperty(() => Id, value); }
 
         public object this[string fieldName] {

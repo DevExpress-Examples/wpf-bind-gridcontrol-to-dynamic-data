@@ -38,7 +38,7 @@ namespace ICustomTypeDescriptor {
 
     [TypeDescriptionProvider(typeof(ItemDescriptionProvider))]
     public class Item : BindableBase {
-        private readonly Dictionary<string, object> _customFieldValues = new();
+        private readonly Dictionary<string, object> _customFieldValues = new Dictionary<string, object>();
 
         public int Id { get => GetProperty(() => Id); set => SetProperty(() => Id, value); }
 

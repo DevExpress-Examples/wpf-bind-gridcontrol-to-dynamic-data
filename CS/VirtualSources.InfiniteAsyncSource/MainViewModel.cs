@@ -12,7 +12,7 @@ using DevExpress.Xpf.Data;
 
 namespace VirtualSources.InfiniteAsyncSource {
     public class MainViewModel : ViewModelBase {
-        private readonly ObservableCollection<Item> _items = new();
+        private readonly ObservableCollection<Item> _items = new ObservableCollection<Item>();
         public PropertyDescriptorCollection CustomFields { get; }
 
         public MainViewModel() {
@@ -34,7 +34,7 @@ namespace VirtualSources.InfiniteAsyncSource {
     }
 
     public class Item : BindableBase {
-        private readonly Dictionary<string, object> _customFieldValues = new();
+        private readonly Dictionary<string, object> _customFieldValues = new Dictionary<string, object>();
         public DateTime CreatedAt { get => GetProperty(() => CreatedAt); set => SetProperty(() => CreatedAt, value); }
         public int Id { get => GetProperty(() => Id); set => SetProperty(() => Id, value); }
         public string Name { get => GetProperty(() => Name); set => SetProperty(() => Name, value); }

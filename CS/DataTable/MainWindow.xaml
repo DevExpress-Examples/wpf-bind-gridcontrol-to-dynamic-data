@@ -10,7 +10,7 @@
     Height="800"
     Title="MainWindow">
     <dx:ThemedWindow.DataContext>
-        <local:MainViewModel/>
+        <local:MainViewModel />
     </dx:ThemedWindow.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -22,7 +22,7 @@
             ItemsSource="{Binding Items}"
             Name="Grid">
             <dxg:GridControl.View>
-                <dxg:TableView Name="view"/>
+                <dxg:TableView Name="view" />
             </dxg:GridControl.View>
         </dxg:GridControl>
         <StackPanel Grid.Row="1">

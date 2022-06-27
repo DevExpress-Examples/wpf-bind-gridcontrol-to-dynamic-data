@@ -5,12 +5,10 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 
-namespace ITypedList
-{
+namespace ITypedList {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
-    {
+    public partial class App : Application {
     }
 }
