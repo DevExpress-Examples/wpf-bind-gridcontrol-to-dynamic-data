@@ -6,7 +6,7 @@
 ## How to Bind GridControl to Dynamic Data
 This example demonstrates how to implement techniques described in the following help topic:
 
-[Bind to Dynamic Data](http://docs.devexpress.devx/WPF/403949/controls-and-libraries/data-grid/bind-to-data/bind-to-dynamic-data).
+[Bind to Dynamic Data](http://docs.devexpress.devx/WPF/403949/controls-and-libraries/data-grid/bind-to-data/bind-to-dynamic-data)
 
 See also:
 
