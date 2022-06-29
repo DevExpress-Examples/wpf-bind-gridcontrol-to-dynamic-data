@@ -39,7 +39,7 @@ We recommend that you use bindings for columns only when it is necessary. For ex
 
 ||Complexity\*|Overall Performance (1M rows)\*\*|Sorting|Filtering (even records)|Scrolling|
 |--|--|--|--|--|--|
-|[Unbound Columns](/CS/Unbound%20Columns) ([VB](/VB/Unbound%20Columns))|Simple|Average|1.5x|1.5x|0.4x|
+|[Unbound Columns](/CS/Unbound_Columns) ([VB](/VB/Unbound_Columns))|Simple|Average|1.5x|1.5x|0.4x|
 |[Virtual Data Source](/CS/VirtualSources.InfiniteAsyncSource) ([VB](/VB/VirtualSources.InfiniteAsyncSource))\*\*\*|Average|Good|-|-|-|
 |[ExpandoObject](/CS/ExpandoObject) ([VB](/VB/ExpandoObject))|Average|Good|0.5x|1.4x|0.5x|
 |[ICustomTypeDescriptor](/CS/ICustomTypeDescriptor) ([VB](/VB/ICustomTypeDescriptor))|Difficult|Average|2x|1.5x|0.3x|
