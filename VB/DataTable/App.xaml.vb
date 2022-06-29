@@ -5,7 +5,7 @@ Namespace DataTable
     ''' <summary>
     ''' Interaction logic for App.xaml
     ''' </summary>
-    Public Partial Class App
+    Partial Public Class App
         Inherits Application
 
     End Class

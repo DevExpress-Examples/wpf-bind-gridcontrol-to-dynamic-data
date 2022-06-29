@@ -11,7 +11,7 @@ Namespace DataTable.Properties
 
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0")>
-    Friend NotInheritable Partial Class Settings
+    Partial Friend NotInheritable Class Settings
         Inherits Global.System.Configuration.ApplicationSettingsBase
 
         Private Shared defaultInstance As DataTable.Properties.Settings = CType((Global.System.Configuration.ApplicationSettingsBase.Synchronized(New DataTable.Properties.Settings())), DataTable.Properties.Settings)

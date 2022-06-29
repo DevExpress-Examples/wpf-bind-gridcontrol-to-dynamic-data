@@ -5,7 +5,7 @@ Namespace DataTable
     ''' <summary>
     '''     Interaction logic for MainWindow.xaml
     ''' </summary>
-    Public Partial Class MainWindow
+    Partial Public Class MainWindow
         Inherits ThemedWindow
 
         Public Sub New()

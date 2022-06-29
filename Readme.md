@@ -3,7 +3,9 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 ## How to Bind GridControl to Dynamic Data
-This example demonstrates how to implement techniques described in the following help topic: [Bind to Dynamic Data](http://docs.devexpress.devx/WPF/403949/controls-and-libraries/data-grid/bind-to-data/bind-to-dynamic-data).
+This example demonstrates how to implement techniques described in the following help topic:
+
+[Bind to Dynamic Data](http://docs.devexpress.devx/WPF/403949/controls-and-libraries/data-grid/bind-to-data/bind-to-dynamic-data).
 
 See also:
 

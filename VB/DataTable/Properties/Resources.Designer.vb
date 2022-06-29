@@ -35,7 +35,7 @@ Namespace DataTable.Properties
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>
         Friend Shared ReadOnly Property ResourceManager As Global.System.Resources.ResourceManager
             Get
-                If(DataTable.Properties.Resources.resourceMan Is Nothing) Then
+                If (DataTable.Properties.Resources.resourceMan Is Nothing) Then
                     Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("Resources", GetType(DataTable.Properties.Resources).Assembly)
                     DataTable.Properties.Resources.resourceMan = temp
                 End If

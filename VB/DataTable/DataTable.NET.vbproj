@@ -4,10 +4,15 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <RootNamespace />
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Properties\AssemblyInfo.cs" />
+	  <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.vb" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="MainViewModel.cs">
+    <Compile Update="MainViewModel.vb">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

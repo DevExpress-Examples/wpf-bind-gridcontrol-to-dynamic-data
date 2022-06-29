@@ -4,21 +4,20 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <RootNamespace />
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Properties\AssemblyInfo.cs" />
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.vb" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DevExpress.Wpf" Version="22.1.3" />
     <PackageReference Include="DevExpress.Wpf.Themes.All" Version="22.1.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="MainViewModel.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
 
 </Project>
