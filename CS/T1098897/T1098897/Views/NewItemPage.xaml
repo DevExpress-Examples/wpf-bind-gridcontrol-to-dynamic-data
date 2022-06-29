@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="New Item"
+             xmlns:dxdf="clr-namespace:DevExpress.XamarinForms.DataForm;assembly=DevExpress.XamarinForms.Editors"
+             xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
+             BackgroundColor="{StaticResource NormalBackgroundColor}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:navigation="clr-namespace:DevExpress.XamarinForms.Navigation;assembly=DevExpress.XamarinForms.Navigation"
+             ios:Page.UseSafeArea="true"
+             x:Class="T1098897.Views.NewItemPage">
+    <ContentPage.Content>
+        <navigation:TabView>
+            <navigation:TabViewItem>
+                <StackLayout Spacing="15" Padding="15">
+                    <dxdf:DataFormView x:Name="dataForm" DataObject="{Binding .}" CommitMode="PropertyChanged" ContentPadding="0" Margin="0">
+                        <dxdf:DataFormView.Resources>
+                            <Style TargetType="dxe:TextEdit">
+                                <Setter Property="TextFontSize" Value="16" />
+                                <Setter Property="TextFontFamily" Value="Roboto" />
+                                <Setter Property="PlaceholderColor" Value="#acacac"/>
+                            </Style>
+                        </dxdf:DataFormView.Resources>
+                        <dxdf:DataFormTextItem InplaceLabelText="Text" FieldName="Text" IsLabelVisible="False" ></dxdf:DataFormTextItem>
+                        <dxdf:DataFormTextItem InplaceLabelText="Description" FieldName="Description" IsLabelVisible="False"></dxdf:DataFormTextItem>
+                    </dxdf:DataFormView>
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" Style="{StaticResource PrimaryButton}"/>
+                        <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" Style="{StaticResource PrimaryButton}"/>
+                    </StackLayout>
+                </StackLayout>
+            </navigation:TabViewItem>
+        </navigation:TabView>
+    </ContentPage.Content>
+
+</ContentPage>

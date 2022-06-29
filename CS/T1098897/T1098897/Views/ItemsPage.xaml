@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxcv="clr-namespace:DevExpress.XamarinForms.CollectionView;assembly=DevExpress.XamarinForms.CollectionView"
+             xmlns:local="clr-namespace:T1098897.ViewModels"
+             xmlns:model="clr-namespace:T1098897.Models"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource NormalBackgroundColor}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             x:Class="T1098897.Views.ItemsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+    <dxcv:DXCollectionView  x:Name="ItemsListView"
+            ItemsSource="{Binding Items}"
+            IsPullToRefreshEnabled="True"
+            PullToRefreshCommand="{Binding LoadItemsCommand}"
+            IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
+            SelectionMode="None">
+        <dxcv:DXCollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout Padding="18,20,10,01" x:DataType="model:Item">
+                    <Label Text="{Binding Text}"
+                        LineBreakMode="NoWrap"
+                        Style="{DynamicResource ListItemTextStyle}"
+                        FontFamily="Roboto"
+                        FontSize="14"
+                        TextColor="{StaticResource NormalText}"/>
+                    <Label Text="{Binding Description}"
+                        LineBreakMode="NoWrap"
+                        Style="{DynamicResource ListItemDetailTextStyle}"
+                        FontFamily="Roboto"
+                        FontSize="12"
+                        TextColor="{StaticResource NormalLightText}"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            NumberOfTapsRequired="1"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"
+                            CommandParameter="{Binding .}">
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </DataTemplate>
+        </dxcv:DXCollectionView.ItemTemplate>
+    </dxcv:DXCollectionView>
+</ContentPage>
