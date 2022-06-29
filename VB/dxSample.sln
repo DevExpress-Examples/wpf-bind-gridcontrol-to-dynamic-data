@@ -11,7 +11,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ICustomTypeDescriptor", "IC
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ITypedList", "ITypedList\ITypedList.vbproj", "{C1BC9C52-47E7-4E71-A8D4-9060CE07D956}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Unbound Columns", "Unbound Columns\Unbound Columns.vbproj", "{4D8A33F4-F229-4430-816D-3B7AAD7F9CD2}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Unbound_Columns", "Unbound_Columns\Unbound_Columns.vbproj", "{4D8A33F4-F229-4430-816D-3B7AAD7F9CD2}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VirtualSources.InfiniteAsyncSource", "VirtualSources.InfiniteAsyncSource\VirtualSources.InfiniteAsyncSource.vbproj", "{2C867DEA-C454-4F0B-BD72-0255E33F58D2}"
 EndProject

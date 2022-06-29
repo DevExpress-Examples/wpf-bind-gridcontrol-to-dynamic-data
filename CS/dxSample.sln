@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICustomTypeDescriptor", "IC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITypedList", "ITypedList\ITypedList.csproj", "{C1BC9C52-47E7-4E71-A8D4-9060CE07D956}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unbound Columns", "Unbound Columns\Unbound Columns.csproj", "{4D8A33F4-F229-4430-816D-3B7AAD7F9CD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unbound_Columns", "Unbound_Columns\Unbound_Columns.csproj", "{4D8A33F4-F229-4430-816D-3B7AAD7F9CD2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualSources.InfiniteAsyncSource", "VirtualSources.InfiniteAsyncSource\VirtualSources.InfiniteAsyncSource.csproj", "{2C867DEA-C454-4F0B-BD72-0255E33F58D2}"
 EndProject
