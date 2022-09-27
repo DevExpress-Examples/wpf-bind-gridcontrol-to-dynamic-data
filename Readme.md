@@ -12,7 +12,7 @@ This example demonstrates various techniques that allow you to bind the [GridCon
 
 GridControl is a data-aware control. It displays data from a source collection. The data is usually pre-determined and can be easily obtained with property descriptors for a class that represents source records.
 
-This data structure does not always satisfy the developer needs. One of the possible requirements is that values should be calculated at runtime and submitted into a collection of an arbitrary size. It may not always be possible to use predefined accessors for such values.
+This data structure does not always satisfy the developer needs. One of the possible requirements is that values should be calculated at runtime and submitted into a collection of an arbitrary size. It may not always be possible to use predefined accessors for such values. 
 
 
 ## The Standard Technique
