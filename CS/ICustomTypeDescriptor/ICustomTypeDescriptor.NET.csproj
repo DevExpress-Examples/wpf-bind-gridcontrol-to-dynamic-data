@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.Wpf" Version="22.1.3" />
-    <PackageReference Include="DevExpress.Wpf.Themes.All" Version="22.1.3" />
+    <PackageReference Include="DevExpress.Wpf" Version="22.2.*-*" />
+    <PackageReference Include="DevExpress.Wpf.Themes.All" Version="22.2.*-*" />
   </ItemGroup>
 
   <ItemGroup>

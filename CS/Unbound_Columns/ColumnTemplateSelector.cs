@@ -8,7 +8,7 @@ namespace Unbound_Columns {
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container) {
             return item is Column column
-                ? column.UnboundType.HasValue ? UnboundColumnTemplate : ColumnTemplate
+                ? column.UnboundDataType != null ? UnboundColumnTemplate : ColumnTemplate
                 : base.SelectTemplate(item, container);
         }
     }

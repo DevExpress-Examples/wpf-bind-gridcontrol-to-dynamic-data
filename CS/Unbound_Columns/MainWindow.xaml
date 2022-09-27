@@ -13,7 +13,7 @@
         <local:ColumnTemplateSelector x:Key="selector">
             <local:ColumnTemplateSelector.UnboundColumnTemplate>
                 <DataTemplate>
-                    <dxg:GridColumn FieldName="{Binding Path=(dxci:DependencyObjectExtensions.DataContext).FieldName, RelativeSource={RelativeSource Self}}" UnboundType="{Binding Path=(dxci:DependencyObjectExtensions.DataContext).UnboundType, RelativeSource={RelativeSource Self}}" />
+                    <dxg:GridColumn FieldName="{Binding Path=(dxci:DependencyObjectExtensions.DataContext).FieldName, RelativeSource={RelativeSource Self}}" UnboundDataType="{Binding Path=(dxci:DependencyObjectExtensions.DataContext).UnboundDataType, RelativeSource={RelativeSource Self}}" />
                 </DataTemplate>
             </local:ColumnTemplateSelector.UnboundColumnTemplate>
             <local:ColumnTemplateSelector.ColumnTemplate>

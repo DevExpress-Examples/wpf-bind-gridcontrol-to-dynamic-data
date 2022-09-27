@@ -24,8 +24,8 @@ namespace Unbound_Columns {
 
             Columns = new ObservableCollection<Column> {
                 new Column() { FieldName = "Id" },
-                new Column() { FieldName = "Name", UnboundType = UnboundColumnType.String },
-                new Column() { FieldName = "CreatedAt", UnboundType = UnboundColumnType.DateTime }
+                new Column() { FieldName = "Name", UnboundDataType = typeof(string) },
+                new Column() { FieldName = "CreatedAt", UnboundDataType = typeof(DateTime) }
             };
 
             OnCustomUnboundColumnDataCommand = new DelegateCommand<UnboundColumnRowArgs>(OnCustomUnboundColumnData);
@@ -39,7 +39,7 @@ namespace Unbound_Columns {
         }
 
         public void AddColumn() {
-            Columns.Add(new Column { FieldName = $"Value {Columns.Count}", UnboundType = UnboundColumnType.Integer });
+            Columns.Add(new Column { FieldName = $"Value {Columns.Count}", UnboundDataType = typeof(int) });
         }
 
         public ICommand OnCustomUnboundColumnDataCommand { get; }
@@ -65,6 +65,6 @@ namespace Unbound_Columns {
 
     public class Column : BindableBase {
         public string FieldName { get => GetProperty(() => FieldName); set => SetProperty(() => FieldName, value); }
-        public UnboundColumnType? UnboundType { get => GetProperty(() => UnboundType); set => SetProperty(() => UnboundType, value); }
+        public Type UnboundDataType { get => GetProperty(() => UnboundDataType); set => SetProperty(() => UnboundDataType, value); }
     }
 }
