@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # WPF Data Grid - Bind to Dynamic Data
 
-This example demonstrates various techniques that allow you to bind the [GridControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl) to data that changes its structure at runtime.
+This example demonstrates various techniques that allow you to bind the [GridControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl) to data that changes its structure at runtime. 
 
 
 ## The Task
