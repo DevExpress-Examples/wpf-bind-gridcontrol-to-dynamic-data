@@ -20,7 +20,7 @@ When data source values are calculated at runtime, they are placed in a collecti
 
 To perform this task, you can use the standard WPF data binding. Refer to the following help for information on how to use data bindings in the GridControl: [Binding Columns to Data Source Fields](https://docs.devexpress.com/WPF/120400/controls-and-libraries/data-grid/grid-view-data-layout/columns-and-card-fields/binding-columns-to-data-source-fields).
 
-This technique has its flaws. In certain cases and with excessive amounts of data, bindings may show significant performance issues. We recommend that you use bindings for columns only when it is necessary. For example, to display unsupported data formats with custom cell templates or to make the GridControl work with the interface inheritance.
+In certain cases and with a large amount of data, bindings may cause performance issues. We recommend that you use bindings for columns only when it is necessary. For example, to display unsupported data formats with custom cell templates or to make the GridControl work with the interface inheritance.
 
 
 ## The DevExpress Technique
