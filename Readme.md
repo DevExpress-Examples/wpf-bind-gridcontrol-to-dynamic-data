@@ -10,34 +10,34 @@ This example demonstrates various techniques that allow you to bind the [GridCon
 
 ## The Task
 
-GridControl is a data-aware control. It displays data from a source collection. The data is usually pre-determined and can be easily obtained with property descriptors for a class that represents source records.
+The GridControl is a data-aware control that displays data from a source collection. In most cases, this data is predetermined, and the GridControl uses its property descriptors to obtain data from a data source.
 
-This data structure does not always satisfy the developer needs. One of the possible requirements is that values should be calculated at runtime and submitted into a collection of an arbitrary size. It may not always be possible to use predefined accessors for such values.
+Sometimes, data source values are calculated at runtime and placed into a collection of an arbitrary size. In this collection, not only the number of rows but also the number of columns can change. You cannot use predefined accessors for such values.
 
 
 ## The Standard Technique
 
-The standard WPF data binding solves this problem. Provided the correct path, the data will be displayed anywhere you need it. In fact, you can also use it with GridControl - see [Binding Columns to Data Source Fields](https://docs.devexpress.com/WPF/120400/controls-and-libraries/data-grid/grid-view-data-layout/columns-and-card-fields/binding-columns-to-data-source-fields). This technique has its flaws. In certain cases and with excessive amounts of data, bindings may show significant performance issues.
+To accomplish this task, you can use the standard WPF data binding. Refer to the following help for information on how to use data bindings in the GridControl: [Binding Columns to Data Source Fields](https://docs.devexpress.com/WPF/120400/controls-and-libraries/data-grid/grid-view-data-layout/columns-and-card-fields/binding-columns-to-data-source-fields).
 
-We recommend that you use bindings for columns only when it is necessary. For example, to display unsupported data formats with custom cell templates or to make GridControl work with interface inheritance.
+This technique has its flaws. In certain cases and with excessive amounts of data, bindings may show significant performance issues. We recommend that you use bindings for columns only when it is necessary. For example, to display unsupported data formats with custom cell templates or to make the GridControl work with the interface inheritance.
 
 
 ## The DevExpress Technique
 
-* The GridControl has the [Unbound Columns](https://docs.devexpress.com/WPF/6124/controls-and-libraries/data-grid/grid-view-data-layout/columns-and-card-fields/unbound-columns) functionality suitable for dynamic data. Handle the [CustomUnboundColumnData](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl.CustomUnboundColumnData) event to manually fetch and save edited data;
-* You can also use our Virtual Data Sources for this task. See [Bind to any Data Source with Virtual Sources](https://docs.devexpress.com/WPF/10803/controls-and-libraries/data-grid/bind-to-data/bind-to-any-data-source-with-virtual-sources). Such sources support [Custom Properties](https://docs.devexpress.com/WPF/DevExpress.Xpf.Data.VirtualSourceBase.CustomProperties).
+* The GridControl can contain [Unbound Columns](https://docs.devexpress.com/WPF/6124/controls-and-libraries/data-grid/grid-view-data-layout/columns-and-card-fields/unbound-columns). These columns can display any values and are suitable for dynamic data. Handle the [CustomUnboundColumnData](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridControl.CustomUnboundColumnData) event to manually fetch and save edited data.
+* You can also use our [Virtual Data Sources](https://docs.devexpress.com/WPF/10803/controls-and-libraries/data-grid/bind-to-data/bind-to-any-data-source-with-virtual-sources) for this task. Such sources support [Custom Properties](https://docs.devexpress.com/WPF/DevExpress.Xpf.Data.VirtualSourceBase.CustomProperties) that allow you to define custom property descriptors.
 
 
 ## Considerations
 
-* Use [ExpandoObject](https://docs.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject) to add members to your classes at runtime;
-* Implement the [ICustomTypeDescriptor](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.icustomtypedescriptor)/[ITypedList](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.itypedlist) interface. These interfaces allow you to use custom property descriptors so you can change the way data is fetched from your classes;
-* Use [DataTable](https://docs.microsoft.com/en-us/dotnet/api/system.data.datatable). You have full control over its rows and columns.
+* Use the [ExpandoObject](https://docs.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject) technique if you need to add fields to your data source at runtime.
+* The [ICustomTypeDescriptor](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.icustomtypedescriptor) and [ITypedList](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.itypedlist) interfaces allow you to use custom property descriptors so you can change the way data is fetched from your data source.
+* Use the [DataTable](https://docs.microsoft.com/en-us/dotnet/api/system.data.datatable) technique if you need to programmatically control rows and columns.
 
 
-## Stats
+## Comparison
 
-||Complexity\*|Overall Performance (1M rows)\*\*|Sorting|Filtering (even records)|Scrolling|
+| Technique |Complexity\*|Overall Performance (1M rows)\*\*|Sorting|Filtering (even records)|Scrolling|
 |--|--|--|--|--|--|
 |[Unbound Columns](/CS/Unbound_Columns) ([VB](/VB/Unbound_Columns))|Simple|Average|1.5x|1.5x|0.4x|
 |[Virtual Data Source](/CS/VirtualSources.InfiniteAsyncSource) ([VB](/VB/VirtualSources.InfiniteAsyncSource))\*\*\*|Average|Good|-|-|-|
@@ -48,9 +48,9 @@ We recommend that you use bindings for columns only when it is necessary. For ex
 
 \* The complexity is mostly measured by our subjective opinion and the aggregate necessity to create custom classes, implement interfaces, or handle events.
 
-\*\* The exact time frames may differ depending on the machine specs or overall project implementation. This table shows relative values measured in multiple attempts on the same machine.
+\*\* The exact time may differ based on the project implementation or machine specifications. This table shows relative values measured in multiple attempts on the same machine.
 
-\*\*\* When using a virtual data source, adding new columns at runtime is only possible if you reset the source and fetch all rows from the start. The performance of common data shaping operations depends on custom logic that implements such operations in the source.
+\*\*\* When you add new columns to a virtual data source at runtime, you should reset the source and fetch all rows from scratch. The performance of common data shaping operations depends on custom logic that implements such operations in the source.
 
 
 ## Documentation
