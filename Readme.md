@@ -12,12 +12,13 @@ This example demonstrates various techniques that allow you to bind the [GridCon
 
 The GridControl is a data-aware control that displays data from a source collection. In most cases, this data is predetermined, and the GridControl uses its property descriptors to obtain data from a data source.
 
-Sometimes, data source values are calculated at runtime and placed into a collection of an arbitrary size. In this collection, not only the number of rows but also the number of columns can change. You cannot use predefined accessors for such values.
+When data source values are calculated at runtime, they are placed in a collection with an arbitrary size. In this collection, the number of rows and columns can change. You cannot use predefined accessors for such values.
+
 
 
 ## The Standard Technique
 
-To accomplish this task, you can use the standard WPF data binding. Refer to the following help for information on how to use data bindings in the GridControl: [Binding Columns to Data Source Fields](https://docs.devexpress.com/WPF/120400/controls-and-libraries/data-grid/grid-view-data-layout/columns-and-card-fields/binding-columns-to-data-source-fields).
+To perform this task, you can use the standard WPF data binding. Refer to the following help for information on how to use data bindings in the GridControl: [Binding Columns to Data Source Fields](https://docs.devexpress.com/WPF/120400/controls-and-libraries/data-grid/grid-view-data-layout/columns-and-card-fields/binding-columns-to-data-source-fields).
 
 This technique has its flaws. In certain cases and with excessive amounts of data, bindings may show significant performance issues. We recommend that you use bindings for columns only when it is necessary. For example, to display unsupported data formats with custom cell templates or to make the GridControl work with the interface inheritance.
 
@@ -50,7 +51,8 @@ This technique has its flaws. In certain cases and with excessive amounts of dat
 
 \*\* The exact time may differ based on the project implementation or machine specifications. This table shows relative values measured in multiple attempts on the same machine.
 
-\*\*\* When you add new columns to a virtual data source at runtime, you should reset the source and fetch all rows from scratch. The performance of common data shaping operations depends on custom logic that implements such operations in the source.
+\*\*\* When you add new columns to a virtual data source at runtime, you should reset the source and fetch all rows. The performance of common data shaping operations depends on custom logic that implements such operations in the source.
+
 
 
 ## Documentation
