@@ -1,29 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <RootNamespace />
   </PropertyGroup>
-
   <ItemGroup>
-	<ApplicationDefinition Include="App.xaml" />
+    <ApplicationDefinition Include="App.xaml" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Remove="Properties\AssemblyInfo.vb" />
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="DevExpress.Wpf" Version="22.1.3" />
-    <PackageReference Include="DevExpress.Wpf.Themes.All" Version="22.1.3" />
+    <PackageReference Include="DevExpress.Wpf" Version="24.2.1-alpha-24207" />
+    <PackageReference Include="DevExpress.Wpf.Themes.All" Version="24.2.1-alpha-24207" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Update="MainViewModel.vb">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
-
 </Project>
