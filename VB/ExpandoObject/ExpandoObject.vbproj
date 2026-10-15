@@ -36,19 +36,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Mvvm.v24.2" />
-    <Reference Include="DevExpress.Data.Desktop.v24.2" />
-    <Reference Include="DevExpress.Drawing.v24.2" />
-    <Reference Include="DevExpress.Data.v24.2" />
-    <Reference Include="DevExpress.Printing.v24.2.Core" />
-    <Reference Include="DevExpress.Xpf.Core.v24.2" />
-    <Reference Include="DevExpress.Xpf.Grid.v24.2, Version=24.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Mvvm.v26.1" />
+    <Reference Include="DevExpress.Data.Desktop.v26.1" />
+    <Reference Include="DevExpress.Drawing.v26.1" />
+    <Reference Include="DevExpress.Data.v26.1" />
+    <Reference Include="DevExpress.Printing.v26.1.Core" />
+    <Reference Include="DevExpress.Xpf.Core.v26.1" />
+    <Reference Include="DevExpress.Xpf.Grid.v26.1, Version=26.1.5.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Grid.v24.2.Core, Version=24.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Xpf.Grid.v26.1.Core, Version=26.1.5.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Themes.Office2019Colorful.v24.2" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2019Colorful.v26.1" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
